@@ -28,7 +28,7 @@ import com.sojson.core.shiro.session.ShiroSessionRepository;
  * @version 1.0,2016年6月2日 <br/>
  * 
  */
-public class CustomShiroSessionDAO extends AbstractSessionDAO{ 
+public class CustomShiroSessionDAO extends AbstractSessionDAO{
 	
     private ShiroSessionRepository shiroSessionRepository;  
   
@@ -40,13 +40,12 @@ public class CustomShiroSessionDAO extends AbstractSessionDAO{
             ShiroSessionRepository shiroSessionRepository) {  
         this.shiroSessionRepository = shiroSessionRepository;  
     }  
-  
-    @Override  
+
     public void update(Session session) throws UnknownSessionException {  
         getShiroSessionRepository().saveSession(session);  
     }  
   
-    @Override  
+
     public void delete(Session session) {  
         if (session == null) {  
         	LoggerUtils.error(getClass(), "Session 不能为null");
@@ -57,7 +56,7 @@ public class CustomShiroSessionDAO extends AbstractSessionDAO{
             getShiroSessionRepository().deleteSession(id);  
     }  
   
-    @Override  
+
     public Collection<Session> getActiveSessions() {  
         return getShiroSessionRepository().getAllSessions();  
     }  
